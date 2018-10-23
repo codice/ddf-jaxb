@@ -34,9 +34,47 @@
         <ows-v_1_0_0-schema.version>1.1.0</ows-v_1_0_0-schema.version>
         <jaxb2.version>1.11.1</jaxb2.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+
+        <!-- gitflow-incremental-builder -->
+        <!-- See https://github.com/vackosar/gitflow-incremental-builder for a list of all the options -->
+        <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch>
+        <gib.baseBranch>HEAD</gib.baseBranch>
+        <gib.enabled>false</gib.enabled>
+        <gib.failOnError>false</gib.failOnError>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://artifacts.codice.org/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://artifacts.codice.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public v3</name>
+            <url>http://www.gnu.org/licenses/lgpl.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Codice Foundation</name>
+        <url>https://codice.org</url>
+    </organization>
+
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.vackosar.gitflowincrementalbuilder</groupId>
+                <artifactId>gitflow-incremental-builder</artifactId>
+                <version>3.4</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
