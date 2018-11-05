@@ -26,24 +26,22 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.5</version>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>${maven-jaxb2-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>xjc</id>
                         <goals>
-                            <goal>xjc</goal>
+                            <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <strict>false</strict>
+                            <!-- The name of your generated source package -->
+                            <generatePackage>oasis.names.tc.xacml._3_0.core.schema.wd_17</generatePackage>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <arguments>-extension</arguments>
-                    <!-- The name of your generated source package -->
-                    <packageName>oasis.names.tc.xacml._3_0.core.schema.wd_17</packageName>
-                </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>
