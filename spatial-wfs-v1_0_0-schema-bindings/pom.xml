@@ -68,13 +68,13 @@
                         </goals>
                         <configuration>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
                             <schemaIncludes>
                                 <include>wfs/1.0.0/WFS-capabilities.xsd</include>
                             </schemaIncludes>
                             <bindingIncludes>
                                 <include>bindings/wfs-capabilities-binding.xjb</include>
                             </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-capabilites</generateDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -84,13 +84,13 @@
                         </goals>
                         <configuration>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
                             <schemaIncludes>
                                 <include>wfs/1.0.0/OGC-exception.xsd</include>
                             </schemaIncludes>
                             <bindingIncludes>
                                 <include>bindings/ogc-exception-binding.xjb</include>
                             </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-exceptions</generateDirectory>
                         </configuration>
                     </execution>
                 </executions>
