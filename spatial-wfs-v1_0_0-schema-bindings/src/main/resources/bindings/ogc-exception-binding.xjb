@@ -19,7 +19,7 @@
 	jaxb:extensionBindingPrefixes="xjc">
 
 	<jaxb:bindings
-		schemaLocation="../resources/wfs/1.0.0/OGC-exception.xsd"
+		schemaLocation="../wfs/1.0.0/OGC-exception.xsd"
 		node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="ogc.schema.opengis.wfs.exception.v_1_0_0" />

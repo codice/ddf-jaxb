@@ -19,7 +19,7 @@
 	jaxb:extensionBindingPrefixes="xjc">
 
 	<jaxb:bindings
-		schemaLocation="../resources/wfs/1.0.0/WFS-capabilities.xsd"
+		schemaLocation="../wfs/1.0.0/WFS-capabilities.xsd"
 		node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="ogc.schema.opengis.wfs_capabilities.v_1_0_0" />
@@ -27,7 +27,7 @@
 	</jaxb:bindings>
 
 	<jaxb:bindings
-		schemaLocation="../resources/filter/1.0.0/filterCapabilities.xsd"
+		schemaLocation="../filter/1.0.0/filterCapabilities.xsd"
 		node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="ogc.schema.opengis.filter_capabilities.v_1_0_0" />

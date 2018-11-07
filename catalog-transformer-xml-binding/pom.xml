@@ -37,17 +37,23 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>${maven-jaxb2-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <configuration combine.children="append">
+                        <configuration>
                             <schemaIncludes>
                                 <include>gml/3.1.1/base/gml.xsd</include>
                                 <include>metacard.xsd</include>
                             </schemaIncludes>
+                            <episodes>
+                                <episode>
+                                    <groupId>org.jvnet.ogc</groupId>
+                                    <artifactId>gml-v_3_1_1-schema</artifactId>
+                                    <version>${gml-v_3_1_1-schema.version}</version>
+                                </episode>
+                            </episodes>
                             <args>
                                 <arg>-XtoString</arg>
                                 <arg>-Xequals</arg>
@@ -60,24 +66,8 @@
                                 <arg>-Xinheritance</arg>
                             </args>
 
-                            <plugins>
-                                <plugin>
-                                    <groupId>org.jvnet.jaxb2_commons</groupId>
-                                    <artifactId>jaxb2-basics</artifactId>
-                                    <version>${jaxb2.version}</version>
-                                </plugin>
-                            </plugins>
                             <extension>true</extension>
-                            <episodes>
-                                <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>gml-v_3_1_1-schema</artifactId>
-                                    <version>${gml-v_3_1_1-schema.version}</version>
-                                </episode>
-                            </episodes>
-                            <forceRegenerate>true</forceRegenerate>
                             <removeOldOutput>true</removeOldOutput>
-                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>

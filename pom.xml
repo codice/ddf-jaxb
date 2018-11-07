@@ -46,8 +46,8 @@
         <jaxb.version>2.2.11</jaxb.version>
         <jaxb2.version>0.10.0</jaxb2.version>
 
+        <jaxb.visitor.version>1.13</jaxb.visitor.version>
         <jaxb2.annotate.version>1.1.0</jaxb2.annotate.version>
-        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <ogc-filter-v_1_1_0-schema.thirdparty.version>1.1.0_5</ogc-filter-v_1_1_0-schema.thirdparty.version>
 
         <!-- gitflow-incremental-builder -->
@@ -150,6 +150,29 @@
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jvnet.jaxb2.maven2</groupId>
+                    <artifactId>maven-jaxb2-plugin</artifactId>
+                    <version>${maven-jaxb2-plugin.version}</version>
+                    <configuration>
+                        <plugins combine.children="append">
+                            <plugin>
+                                <groupId>org.jvnet.jaxb2_commons</groupId>
+                                <artifactId>jaxb2-basics</artifactId>
+                                <version>${jaxb2.version}</version>
+                            </plugin>
+                        </plugins>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <repositories>
