@@ -18,7 +18,7 @@
     <parent>
         <groupId>ddf.jaxb</groupId>
         <artifactId>ddf-jaxb-reactor</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>platform-parser-test-domain</artifactId>
