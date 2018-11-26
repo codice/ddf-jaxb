@@ -18,7 +18,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
 	xmlns:annox="http://annox.dev.java.net" jaxb:extensionBindingPrefixes="xjc annox">
 
-	<jaxb:bindings schemaLocation="../resources/gml/2.1.2/feature.xsd"
+	<jaxb:bindings schemaLocation="../gml/2.1.2/feature.xsd"
 		node="/xs:schema">
 		<jaxb:globalBindings
 			fixedAttributeAsConstantProperty="false" typesafeEnumBase="xs:string"
@@ -53,7 +53,7 @@
 -->
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../resources/w3/1999/xlink.xsd">
+	<jaxb:bindings schemaLocation="../w3/1999/xlink.xsd">
 		<jaxb:bindings
 			node="//xs:attributeGroup[@name='locatorAttrs']//xs:attribute[@ref='xlink:title']">
 			<jaxb:property name="xlink:title1" />
@@ -64,12 +64,12 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../resources/filter/1.0.0/filter.xsd"
+	<jaxb:bindings schemaLocation="../filter/1.0.0/filter.xsd"
 		node="/xs:schema">
 		<jaxb:schemaBindings>
 			<jaxb:package name="ogc.schema.opengis.filter.v_1_0_0" />
 		</jaxb:schemaBindings>
-		<jaxb:bindings schemaLocation="../resources/filter/1.0.0/expr.xsd">
+		<jaxb:bindings schemaLocation="../filter/1.0.0/expr.xsd">
 			<jaxb:bindings node="/xs:schema/xs:complexType[@name='ExpressionType']">
 				<annox:annotate>
 					<annox:annotate annox:class="javax.xml.bind.annotation.XmlTransient"
@@ -79,7 +79,7 @@
 		</jaxb:bindings>
 	</jaxb:bindings>
 
-	<jaxb:bindings schemaLocation="../resources/wfs/1.0.0/WFS-basic.xsd"
+	<jaxb:bindings schemaLocation="../wfs/1.0.0/WFS-basic.xsd"
 		node="/xs:schema">
 		<!-- 
 		<jaxb:bindings node="xs:element[@name='GetFeature']">

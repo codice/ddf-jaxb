@@ -36,18 +36,11 @@
                         </goals>
                         <configuration>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
-                            <schemaDirectory>
-                                src/main/resources
-                            </schemaDirectory>
                             <schemaIncludes>
                                 <include>wfs/1.0.0/WFS-basic.xsd</include>
                             </schemaIncludes>
-                            <bindingDirectory>
-                                src/main/bindings
-                            </bindingDirectory>
                             <bindingIncludes>
-                                <include>wfs-basic-binding.xjb</include>
+                                <include>bindings/wfs-basic-binding.xjb</include>
                             </bindingIncludes>
                             <args>
                                 <arg>-Xannotate</arg>
@@ -58,12 +51,12 @@
                                 <plugin>
                                     <groupId>org.jvnet.jaxb2_commons</groupId>
                                     <artifactId>jaxb2-basics-annotate</artifactId>
-                                    <version>0.6.0</version>
+                                    <version>${jaxb2.annotate.version}</version>
                                 </plugin>
                                 <plugin>
                                     <groupId>com.massfords</groupId>
                                     <artifactId>jaxb-visitor</artifactId>
-                                    <version>1.13</version>
+                                    <version>${jaxb.visitor.version}</version>
                                 </plugin>
                             </plugins>
                         </configuration>
@@ -75,19 +68,13 @@
                         </goals>
                         <configuration>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
-                            <schemaDirectory>
-                                src/main/resources
-                            </schemaDirectory>
                             <schemaIncludes>
                                 <include>wfs/1.0.0/WFS-capabilities.xsd</include>
                             </schemaIncludes>
-                            <bindingDirectory>
-                                src/main/bindings
-                            </bindingDirectory>
                             <bindingIncludes>
-                                <include>wfs-capabilities-binding.xjb</include>
+                                <include>bindings/wfs-capabilities-binding.xjb</include>
                             </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-capabilites</generateDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -97,19 +84,13 @@
                         </goals>
                         <configuration>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
-                            <schemaDirectory>
-                                src/main/resources
-                            </schemaDirectory>
                             <schemaIncludes>
                                 <include>wfs/1.0.0/OGC-exception.xsd</include>
                             </schemaIncludes>
-                            <bindingDirectory>
-                                src/main/bindings
-                            </bindingDirectory>
                             <bindingIncludes>
-                                <include>ogc-exception-binding.xjb</include>
+                                <include>bindings/ogc-exception-binding.xjb</include>
                             </bindingIncludes>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-exceptions</generateDirectory>
                         </configuration>
                     </execution>
                 </executions>

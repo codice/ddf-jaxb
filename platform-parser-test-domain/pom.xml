@@ -28,7 +28,7 @@
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
             <artifactId>jaxb2-basics-runtime</artifactId>
-            <version>0.11.0</version>
+            <version>${jvnet.jaxb2.version}</version>
         </dependency>
     </dependencies>
 
@@ -37,7 +37,6 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>${maven-jaxb2-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -53,22 +52,12 @@
                                 <arg>-Xinheritance</arg>
                                 <arg>-npa</arg>
                             </args>
-                            <plugins>
-                                <plugin>
-                                    <groupId>org.jvnet.jaxb2_commons</groupId>
-                                    <artifactId>jaxb2-basics</artifactId>
-                                    <version>0.6.4</version>
-                                </plugin>
-                            </plugins>
                             <extension>true</extension>
-                            <forceRegenerate>true</forceRegenerate>
                             <removeOldOutput>true</removeOldOutput>
-                            <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 </project>

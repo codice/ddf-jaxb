@@ -36,14 +36,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<configuration>-->
-                    <!--<schemaDirectory>src/main/resources/META-INF</schemaDirectory>-->
-                    <!--<schemaIncludes>-->
-                        <!--<include>cas/cas2.xsd</include>-->
-                    <!--</schemaIncludes>-->
-                <!--</configuration>-->
             </plugin>
-
         </plugins>
     </build>
 </project>

@@ -30,15 +30,25 @@
     </scm>
 
     <properties>
-        <ddf.support.version>2.3.15</ddf.support.version>
+        <ddf.support.version>2.3.16</ddf.support.version>
         <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
         <maven-jaxb2-plugin.version>0.14.0</maven-jaxb2-plugin.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gml-v_3_1_1-schema.version>1.1.0</gml-v_3_1_1-schema.version>
         <ows-v_1_0_0-schema.version>1.1.0</ows-v_1_0_0-schema.version>
-        <jaxb2.version>1.11.1</jaxb2.version>
+        <ogc-filter-v_1_1_0-schema.thirdparty.version>1.1.0_5</ogc-filter-v_1_1_0-schema.thirdparty.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+
+        <!-- Neither of the below modules use semantic versioning correctly -->
+        <!-- Even though it's only a minor version bump <jaxb>2.3.0</jaxb> is a breaking change -->
+        <!-- and cannot be updated until our schemas use a newer version of JAXB2 -->
+        <!-- <jvnet.jaxb2>0.11.0</jvnet.jaxb2> also uses 2.3.0 -->
+        <jaxb.version>2.2.11</jaxb.version>
+        <jvnet.jaxb2.version>0.10.0</jvnet.jaxb2.version>
+
+        <jaxb.visitor.version>1.13</jaxb.visitor.version>
+        <jaxb2.annotate.version>1.1.0</jaxb2.annotate.version>
 
         <!-- gitflow-incremental-builder -->
         <!-- See https://github.com/vackosar/gitflow-incremental-builder for a list of all the options -->
@@ -46,6 +56,7 @@
         <gib.baseBranch>HEAD</gib.baseBranch>
         <gib.enabled>false</gib.enabled>
         <gib.failOnError>false</gib.failOnError>
+        <gitflow.version>3.4</gitflow.version>
     </properties>
 
     <distributionManagement>
@@ -77,7 +88,7 @@
             <extension>
                 <groupId>com.vackosar.gitflowincrementalbuilder</groupId>
                 <artifactId>gitflow-incremental-builder</artifactId>
-                <version>3.4</version>
+                <version>${gitflow.version}</version>
             </extension>
         </extensions>
         <plugins>
@@ -139,6 +150,29 @@
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jvnet.jaxb2.maven2</groupId>
+                    <artifactId>maven-jaxb2-plugin</artifactId>
+                    <version>${maven-jaxb2-plugin.version}</version>
+                    <configuration>
+                        <plugins combine.children="append">
+                            <plugin>
+                                <groupId>org.jvnet.jaxb2_commons</groupId>
+                                <artifactId>jaxb2-basics</artifactId>
+                                <version>${jvnet.jaxb2.version}</version>
+                            </plugin>
+                        </plugins>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <repositories>

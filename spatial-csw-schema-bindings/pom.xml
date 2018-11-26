@@ -28,13 +28,13 @@
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
             <artifactId>jaxb2-basics-runtime</artifactId>
-            <version>0.9.4</version>
+            <version>${jvnet.jaxb2.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.2.11</version>
+            <version>${jaxb.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>org.codice.thirdparty</groupId>
             <artifactId>ogc-filter-v_1_1_0-schema</artifactId>
-            <version>1.1.0_5</version>
+            <version>${ogc-filter-v_1_1_0-schema.thirdparty.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -100,13 +100,6 @@
                                 <arg>-Xinject-code</arg>
                                 <arg>-Xinheritance</arg>
                             </args>
-                            <plugins>
-                                <plugin>
-                                    <groupId>org.jvnet.jaxb2_commons</groupId>
-                                    <artifactId>jaxb2-basics</artifactId>
-                                    <version>0.9.4</version>
-                                </plugin>
-                            </plugins>
                         </configuration>
                     </execution>
                 </executions>
@@ -139,7 +132,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
             </plugin>
             <!-- Replaced antrun deletion of directories with compiler excludes.
              Need to exclude several generated classes from the compile phase -->
