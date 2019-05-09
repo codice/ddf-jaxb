@@ -19,14 +19,14 @@
         xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
     <systemSuffix systemIdSuffix="filter.xsd"
-                  uri="maven:org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar::!/filter/1.1.0/filter.xsd"/>
+                  uri="maven:ddf.jaxb:filter-v_1_1_0-schema-binding:jar::!/filter/1.1.0/filter.xsd"/>
     <systemSuffix systemIdSuffix="filterAll.xsd"
-                  uri="maven:org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar::!/filter/1.1.0/filterAll.xsd"/>
+                  uri="maven:ddf.jaxb:filter-v_1_1_0-schema-binding:jar::!/filter/1.1.0/filterAll.xsd"/>
     <systemSuffix systemIdSuffix="expr.xsd"
-                  uri="maven:org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar::!/filter/1.1.0/expr.xsd"/>
+                  uri="maven:ddf.jaxb:filter-v_1_1_0-schema-binding:jar::!/filter/1.1.0/expr.xsd"/>
     <systemSuffix systemIdSuffix="filterCapabilities.xsd"
-                  uri="maven:org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar::!/filter/1.1.0/filterCapabilities.xsd"/>
+                  uri="maven:ddf.jaxb:filter-v_1_1_0-schema-binding:jar::!/filter/1.1.0/filterCapabilities.xsd"/>
     <systemSuffix systemIdSuffix="sort.xsd"
-                  uri="maven:org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar::!/filter/1.1.0/sort.xsd"/>
+                  uri="maven:ddf.jaxb:filter-v_1_1_0-schema-binding:jar::!/filter/1.1.0/sort.xsd"/>
 
 </catalog>

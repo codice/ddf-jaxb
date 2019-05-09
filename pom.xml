@@ -40,12 +40,8 @@
         <ogc-filter-v_1_1_0-schema.thirdparty.version>1.1.0_5</ogc-filter-v_1_1_0-schema.thirdparty.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 
-        <!-- Neither of the below modules use semantic versioning correctly -->
-        <!-- Even though it's only a minor version bump <jaxb>2.3.0</jaxb> is a breaking change -->
-        <!-- and cannot be updated until our schemas use a newer version of JAXB2 -->
-        <!-- <jvnet.jaxb2>0.11.0</jvnet.jaxb2> also uses 2.3.0 -->
-        <jaxb.version>2.2.11</jaxb.version>
-        <jvnet.jaxb2.version>0.10.0</jvnet.jaxb2.version>
+        <jaxb.version>2.3.2</jaxb.version>
+        <jvnet.jaxb2.version>1.11.1</jvnet.jaxb2.version>
 
         <jaxb.visitor.version>1.13</jaxb.visitor.version>
         <jaxb2.annotate.version>1.1.0</jaxb2.annotate.version>
@@ -217,5 +213,11 @@
         <module>spatial-wfs-v1_0_0-schema-bindings</module>
         <module>spatial-wfs-v2_0_0-schema-bindings</module>
         <module>security-pdp-authzrealm</module>
+        <module>gml-v_3_1_1-schema-binding</module>
+        <module>filter-v_1_1_0-schema-binding</module>
+        <module>filter-v_2_0_0-schema-binding</module>
+        <module>ows-v_1_1_0-schema-binding</module>
+        <module>ows-v_1_0_0-schema-binding</module>
+        <module>wcs-v_1_0_0-schema-binding</module>
     </modules>
 </project>

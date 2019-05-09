@@ -9,32 +9,32 @@
 			GML 3.0 candidate xlinks schema. Copyright (c) 2001 OGC, All Rights Reserved.
 		</documentation>
 	</annotation>
-    <!-- ==============================================================
+	<!-- ==============================================================
        global declarations
       =============================================================== -->
-    <!-- locator attribute -->
-    <attribute name="href" type="anyURI"/>
-    <!-- semantic attributes -->
-    <attribute name="role" type="anyURI"/>
+	<!-- locator attribute -->
+	<attribute name="href" type="anyURI"/>
+	<!-- semantic attributes -->
+	<attribute name="role" type="anyURI"/>
 	<attribute name="arcrole" type="anyURI"/>
 	<attribute name="title" type="string"/>
-    <!-- behavior attributes -->
-    <attribute name="show">
+	<!-- behavior attributes -->
+	<attribute name="show">
 		<annotation>
 			<documentation>
-        The 'show' attribute is used to communicate the desired presentation 
-        of the ending resource on traversal from the starting resource; it's 
-        value should be treated as follows: 
-        new - load ending resource in a new window, frame, pane, or other 
-              presentation context
-        replace - load the resource in the same window, frame, pane, or 
-                  other presentation context
-        embed - load ending resource in place of the presentation of the 
-                starting resource
-        other - behavior is unconstrained; examine other markup in the 
-                link for hints 
-        none - behavior is unconstrained 
-      </documentation>
+				The 'show' attribute is used to communicate the desired presentation
+				of the ending resource on traversal from the starting resource; it's
+				value should be treated as follows:
+				new - load ending resource in a new window, frame, pane, or other
+				presentation context
+				replace - load the resource in the same window, frame, pane, or
+				other presentation context
+				embed - load ending resource in place of the presentation of the
+				starting resource
+				other - behavior is unconstrained; examine other markup in the
+				link for hints
+				none - behavior is unconstrained
+			</documentation>
 		</annotation>
 		<simpleType>
 			<restriction base="string">
@@ -49,18 +49,18 @@
 	<attribute name="actuate">
 		<annotation>
 			<documentation>
-        The 'actuate' attribute is used to communicate the desired timing 
-        of traversal from the starting resource to the ending resource; 
-        it's value should be treated as follows:
-        onLoad - traverse to the ending resource immediately on loading 
-                 the starting resource 
-        onRequest - traverse from the starting resource to the ending 
-                    resource only on a post-loading event triggered for 
-                    this purpose 
-        other - behavior is unconstrained; examine other markup in link 
-                for hints 
-        none - behavior is unconstrained
-      </documentation>
+				The 'actuate' attribute is used to communicate the desired timing
+				of traversal from the starting resource to the ending resource;
+				it's value should be treated as follows:
+				onLoad - traverse to the ending resource immediately on loading
+				the starting resource
+				onRequest - traverse from the starting resource to the ending
+				resource only on a post-loading event triggered for
+				this purpose
+				other - behavior is unconstrained; examine other markup in link
+				for hints
+				none - behavior is unconstrained
+			</documentation>
 		</annotation>
 		<simpleType>
 			<restriction base="string">
@@ -71,15 +71,15 @@
 			</restriction>
 		</simpleType>
 	</attribute>
-    <!-- traversal attributes -->
-    <attribute name="label" type="string"/>
+	<!-- traversal attributes -->
+	<attribute name="label" type="string"/>
 	<attribute name="from" type="string"/>
 	<attribute name="to" type="string"/>
-    <!-- ==============================================================
+	<!-- ==============================================================
        Attributes grouped by XLink type, as specified in the W3C 
        Proposed Recommendation (dated 2000-12-20)
     ============================================================== -->
-    <attributeGroup name="simpleLink">
+	<attributeGroup name="simpleLink">
 		<attribute name="type" type="string" fixed="simple" form="qualified"/>
 		<attribute ref="xlink:href" use="optional"/>
 		<attribute ref="xlink:role" use="optional"/>

@@ -22,7 +22,7 @@
     </parent>
 
     <artifactId>spatial-wfs-v1_0_0-schema-bindings</artifactId>
-
+    <name>DDF :: JAXB :: WFS 1.0.0 Schema Binding</name>
     <build>
         <plugins>
             <plugin>

@@ -22,7 +22,7 @@
     </parent>
 
     <artifactId>spatial-csw-schema-bindings</artifactId>
-    <name>DDF :: Spatial :: CSW :: Schema Bindings</name>
+    <name>DDF :: JAXB :: CSW 2.0.2 Schema Bindings</name>
 
     <dependencies>
         <dependency>
@@ -38,22 +38,20 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>gml-v_3_1_1-schema</artifactId>
-            <version>${gml-v_3_1_1-schema.version}</version>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+            <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>ows-v_1_0_0-schema</artifactId>
-            <version>${ows-v_1_0_0-schema.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>filter-v_1_1_0-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.codice.thirdparty</groupId>
-            <artifactId>ogc-filter-v_1_1_0-schema</artifactId>
-            <version>${ogc-filter-v_1_1_0-schema.thirdparty.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>ows-v_1_0_0-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -71,20 +69,22 @@
                             <catalog>src/main/resources/catalog.xml</catalog>
                             <schemaIncludes>
                                 <value>csw/*/CSW-publication.xsd</value>
-                                <value>gml/*/base/gml.xsd</value>
                             </schemaIncludes>
                             <episodes>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>gml-v_3_1_1-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                                 <episode>
-                                    <groupId>org.codice.thirdparty</groupId>
-                                    <artifactId>ogc-filter-v_1_1_0-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>filter-v_1_1_0-schema-binding</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>ows-v_1_0_0-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>ows-v_1_0_0-schema-binding</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                             </episodes>
                             <strict>false</strict>
@@ -120,9 +120,9 @@
                             net.opengis.gml.v_3_1_1
                         </Export-Package>
                         <Embed-Dependency>
-                            gml-v_3_1_1-schema,
-                            ows-v_1_0_0-schema,
-                            ogc-filter-v_1_1_0-schema,
+                            gml-v_3_1_1-schema-binding,
+                            ows-v_1_0_0-schema-binding,
+                            filter-v_1_1_0-schema-binding,
                             jaxb2-basics-runtime,
                             spatial-csw-schema-bindings
                         </Embed-Dependency>
@@ -133,19 +133,25 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
             </plugin>
-            <!-- Replaced antrun deletion of directories with compiler excludes.
-             Need to exclude several generated classes from the compile phase -->
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/net/opengis/ows/*/*.java</exclude>
-                        <exclude>**/net/opengis/ogc/*.java</exclude>
-                        <exclude>**/net/opengis/filter/*/*.java</exclude>
-                    </excludes>
-                </configuration>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <target>
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter"/>
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows"/>
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/gml"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
         </plugins>
     </build>
 </project>

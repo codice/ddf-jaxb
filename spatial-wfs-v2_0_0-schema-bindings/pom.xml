@@ -12,7 +12,8 @@
  *
  **/
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -22,19 +23,18 @@
     </parent>
 
     <artifactId>spatial-wfs-v2_0_0-schema-bindings</artifactId>
+    <name>DDF :: JAXB :: WFS 2.0.0 Schema Binding</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>ows-v_1_1_0-schema</artifactId>
-            <version>${ows-v_1_0_0-schema.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>filter-v_2_0_0-schema-bindings</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>filter-v_2_0_0-schema</artifactId>
-            <version>${ows-v_1_0_0-schema.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>ows-v_1_1_0-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
@@ -62,19 +62,16 @@
                             <schemaIncludes>
                                 <include>wfs/2.0.0/wfs.xsd</include>
                             </schemaIncludes>
-                            <bindingIncludes>
-                                <include>bindings/binding.xjb</include>
-                            </bindingIncludes>
-                            <extension>true</extension>
-                            <strict>false</strict>
                             <episodes>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>filter-v_2_0_0-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>filter-v_2_0_0-schema-bindings</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>ows-v_1_1_0-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>ows-v_1_1_0-schema-binding</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                             </episodes>
                             <args>

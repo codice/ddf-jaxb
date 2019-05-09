@@ -22,7 +22,7 @@
     </parent>
 
     <artifactId>security-pdp-authzrealm</artifactId>
-
+    <name>DDF :: JAXB :: Security PDP AuthzRealm</name>
     <build>
         <plugins>
             <plugin>
