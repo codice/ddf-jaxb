@@ -1,0 +1,14 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:ddf="urn:catalog:metacard" jaxb:extensionBindingPrefixes="xjc wildcard annox"
+	xmlns:wildcard="http://jaxb2-commons.dev.java.net/basic/wildcard"
+	xmlns:annox="http://annox.dev.java.net"
+	xs:schemaLocation="urn:catalog:metacard metacard.xsd" version="2.0">
+
+    <jaxb:bindings schemaLocation="ows/1.1.0/owsAll.xsd" node="/xs:schema">
+        <jaxb:bindings>
+            <jaxb:package name="net.opengis.ows.v_1_1_0"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

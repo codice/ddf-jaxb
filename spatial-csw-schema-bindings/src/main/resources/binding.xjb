@@ -29,7 +29,6 @@
 
 	</jaxb:bindings>
 
-
 	<jaxb:bindings 
 		schemaLocation="csw/2.0.2/rec-dcmes.xsd"
 		node="/xs:schema">

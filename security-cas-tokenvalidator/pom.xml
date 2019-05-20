@@ -22,7 +22,7 @@
     </parent>
 
     <artifactId>security-cas-tokenvalidator</artifactId>
-    <name>DDF :: Security :: CAS :: Token Validator :: JAXB</name>
+    <name>DDF :: JAXB :: Security CAS Token Validator</name>
 
     <build>
         <plugins>

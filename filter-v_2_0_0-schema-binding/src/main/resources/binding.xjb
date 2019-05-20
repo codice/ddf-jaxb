@@ -1,0 +1,18 @@
+<jaxb:bindings version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns:annox="http://annox.dev.java.net"
+    xmlns:wildcard="http://jaxb2-commons.dev.java.net/basic/wildcard"
+	jaxb:extensionBindingPrefixes="xjc annox wildcard">
+
+    <jaxb:bindings
+        schemaLocation="filter/2.0.0/filter.xsd"
+        node="/xs:schema">
+        <jaxb:globalBindings generateIsSetMethod="true">
+        </jaxb:globalBindings>
+        <jaxb:schemaBindings>
+            <jaxb:package name="net.opengis.filter.v_2_0_0"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

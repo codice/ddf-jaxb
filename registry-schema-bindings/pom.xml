@@ -22,7 +22,7 @@
     </parent>
 
     <artifactId>registry-schema-bindings</artifactId>
-    <name>DDF :: Registry :: Schema Bindings :: JAXB</name>
+    <name>DDF :: JAXB :: Registry Schema Bindings</name>
 
     <dependencies>
         <dependency>
@@ -32,22 +32,14 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>gml-v_3_1_1-schema</artifactId>
-            <version>${gml-v_3_1_1-schema.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>ows-v_1_0_0-schema</artifactId>
-            <version>${ows-v_1_0_0-schema.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.codice.thirdparty</groupId>
-            <artifactId>ogc-filter-v_1_1_0-schema</artifactId>
-            <version>${ogc-filter-v_1_1_0-schema.thirdparty.version}</version>
-            <scope>compile</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>filter-v_1_1_0-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>ddf.jaxb</groupId>
@@ -71,24 +63,23 @@
                             <catalog>src/main/resources/catalog.xml</catalog>
                             <schemaIncludes>
                                 <value>csw-ebrim/*/csw-ebrim.xsd</value>
-                                <value>gml/*/base/gml.xsd</value>
+                                <value>xml/xml.xsd</value>
                             </schemaIncludes>
                             <episodes>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>gml-v_3_1_1-schema</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>filter-v_1_1_0-schema-binding</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                                 <episode>
-                                    <groupId>org.codice.thirdparty</groupId>
-                                    <artifactId>ogc-filter-v_1_1_0-schema</artifactId>
-                                </episode>
-                                <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>ows-v_1_0_0-schema</artifactId>
+                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <version>${project.version}</version>
                                 </episode>
                                 <episode>
                                     <groupId>ddf.jaxb</groupId>
                                     <artifactId>spatial-csw-schema-bindings</artifactId>
+                                    <version>${project.version}</version>
                                 </episode>
                             </episodes>
                             <strict>false</strict>

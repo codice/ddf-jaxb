@@ -22,13 +22,13 @@
     </parent>
 
     <artifactId>catalog-transformer-xml-binding</artifactId>
-    <name>DDF :: Catalog :: Transformer :: XML Binding :: JAXB</name>
+    <name>DDF :: JAXB :: Metacard XML Binding</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.jvnet.ogc</groupId>
-            <artifactId>gml-v_3_1_1-schema</artifactId>
-            <version>${gml-v_3_1_1-schema.version}</version>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
@@ -44,14 +44,12 @@
                         </goals>
                         <configuration>
                             <schemaIncludes>
-                                <include>gml/3.1.1/base/gml.xsd</include>
                                 <include>metacard.xsd</include>
                             </schemaIncludes>
                             <episodes>
                                 <episode>
-                                    <groupId>org.jvnet.ogc</groupId>
-                                    <artifactId>gml-v_3_1_1-schema</artifactId>
-                                    <version>${gml-v_3_1_1-schema.version}</version>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
                                 </episode>
                             </episodes>
                             <args>
