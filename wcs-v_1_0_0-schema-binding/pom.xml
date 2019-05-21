@@ -18,7 +18,7 @@
     <parent>
         <groupId>ddf.jaxb</groupId>
         <artifactId>ddf-jaxb-reactor</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>wcs-v-1_0_0-schema-binding</artifactId>
