@@ -18,7 +18,7 @@
     <parent>
         <groupId>ddf.jaxb</groupId>
         <artifactId>ddf-jaxb-reactor</artifactId>
-        <version>ddf-jaxb-reactor-1.0.3-SNAPSHOT</version>
+        <version>1.0.2</version>
     </parent>
 
     <artifactId>spatial-wfs-v1_0_0-schema-bindings</artifactId>
