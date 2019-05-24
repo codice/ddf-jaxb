@@ -99,6 +99,25 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <target>
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter" />
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows" />
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/cat/csw" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
