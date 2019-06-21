@@ -211,9 +211,11 @@
         <module>spatial-csw-schema-bindings</module>
         <module>registry-schema-bindings</module>
         <module>spatial-wfs-v1_0_0-schema-bindings</module>
+        <module>spatial-wfs-v1_1_0-schema-bindings</module>
         <module>spatial-wfs-v2_0_0-schema-bindings</module>
         <module>security-pdp-authzrealm</module>
         <module>gml-v_3_1_1-schema-binding</module>
+        <module>gml-v_3_2_1-schema-bindings</module>
         <module>filter-v_1_1_0-schema-binding</module>
         <module>filter-v_2_0_0-schema-binding</module>
         <module>ows-v_1_1_0-schema-binding</module>

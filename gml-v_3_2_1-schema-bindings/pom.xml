@@ -21,40 +21,24 @@
         <version>1.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>registry-schema-bindings</artifactId>
-    <name>DDF :: JAXB :: Registry Schema Bindings</name>
+    <artifactId>gml-v_3_2_1-schema-binding</artifactId>
+    <name>DDF :: JAXB :: GML 3.2.1 Schema Binding</name>
 
     <dependencies>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>${jaxb.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
             <artifactId>jaxb2-basics-runtime</artifactId>
             <version>${jvnet.jaxb2.version}</version>
         </dependency>
         <dependency>
-            <groupId>ddf.jaxb</groupId>
-            <artifactId>gml-v_3_1_1-schema-binding</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb.version}</version>
+            <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>ddf.jaxb</groupId>
-            <artifactId>filter-v_1_1_0-schema-binding</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ddf.jaxb</groupId>
-            <artifactId>spatial-csw-schema-bindings</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
     </dependencies>
-
     <build>
+        <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
@@ -73,37 +57,19 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>${maven-jaxb2-plugin.version}</version>
                 <executions>
                     <execution>
+                        <id>generate ogc schemas</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <catalog>src/main/resources/catalog.xml</catalog>
                             <schemaIncludes>
-                                <value>csw-ebrim/*/csw-ebrim.xsd</value>
-                                <value>xml/xml.xsd</value>
+                                <value>gml/3.2.1/gml.xsd</value>
                             </schemaIncludes>
-                            <episodes>
-                                <episode>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <artifactId>filter-v_1_1_0-schema-binding</artifactId>
-                                    <version>${project.version}</version>
-                                </episode>
-                                <episode>
-                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <version>${project.version}</version>
-                                </episode>
-                                <episode>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <artifactId>spatial-csw-schema-bindings</artifactId>
-                                    <version>${project.version}</version>
-                                </episode>
-                            </episodes>
-                            <strict>false</strict>
-                            <extension>true</extension>
                             <args>
+                                <arg>-Xannotate</arg>
                                 <arg>-XtoString</arg>
                                 <arg>-Xequals</arg>
                                 <arg>-XhashCode</arg>
@@ -114,26 +80,19 @@
                                 <arg>-Xinject-code</arg>
                                 <arg>-Xinheritance</arg>
                             </args>
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>${jaxb2.annotate.version}</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics</artifactId>
+                                    <version>${jvnet.jaxb2.version}</version>
+                                </plugin>
+                            </plugins>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <configuration>
-                            <target>
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter" />
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows" />
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/cat/csw" />
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>

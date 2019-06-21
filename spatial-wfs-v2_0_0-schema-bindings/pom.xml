@@ -36,6 +36,11 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>gml-v_3_2_1-schema-binding</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
             <artifactId>jaxb2-basics-runtime</artifactId>
             <version>${jvnet.jaxb2.version}</version>
@@ -62,6 +67,11 @@
                                 <include>wfs/2.0.0/wfs.xsd</include>
                             </schemaIncludes>
                             <episodes>
+                                <episode>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>gml-v_3_2_1-schema-binding</artifactId>
+                                    <version>${project.version}</version>
+                                </episode>
                                 <episode>
                                     <groupId>ddf.jaxb</groupId>
                                     <artifactId>filter-v_2_0_0-schema-bindings</artifactId>
@@ -98,6 +108,7 @@
                             <target>
                                 <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter" />
                                 <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows" />
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/gml" />
                             </target>
                         </configuration>
                         <goals>

@@ -21,15 +21,19 @@
         <version>1.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>registry-schema-bindings</artifactId>
-    <name>DDF :: JAXB :: Registry Schema Bindings</name>
+    <artifactId>spatial-wfs-v1_1_0-schema-bindings</artifactId>
+    <name>DDF :: JAXB :: WFS 1.1.0 Schema Binding</name>
 
     <dependencies>
         <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>${jaxb.version}</version>
-            <scope>provided</scope>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>filter-v_2_0_0-schema-bindings</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ddf.jaxb</groupId>
+            <artifactId>ows-v_1_0_0-schema-binding</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
@@ -41,68 +45,44 @@
             <artifactId>gml-v_3_1_1-schema-binding</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>ddf.jaxb</groupId>
-            <artifactId>filter-v_1_1_0-schema-binding</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ddf.jaxb</groupId>
-            <artifactId>spatial-csw-schema-bindings</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <inherited>true</inherited>
             </plugin>
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
+
                 <executions>
                     <execution>
+                        <id>wfs-generate</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <catalog>src/main/resources/catalog.xml</catalog>
                             <schemaIncludes>
-                                <value>csw-ebrim/*/csw-ebrim.xsd</value>
-                                <value>xml/xml.xsd</value>
+                                <include>wfs/wfs.xsd</include>
                             </schemaIncludes>
                             <episodes>
                                 <episode>
                                     <groupId>ddf.jaxb</groupId>
-                                    <artifactId>filter-v_1_1_0-schema-binding</artifactId>
+                                    <artifactId>filter-v_2_0_0-schema-bindings</artifactId>
                                     <version>${project.version}</version>
                                 </episode>
                                 <episode>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>ows-v_1_0_0-schema-binding</artifactId>
+                                    <version>${project.version}</version>
+                                </episode>
+                                <episode>
+                                    <groupId>ddf.jaxb</groupId>
                                     <artifactId>gml-v_3_1_1-schema-binding</artifactId>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <version>${project.version}</version>
-                                </episode>
-                                <episode>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <artifactId>spatial-csw-schema-bindings</artifactId>
                                     <version>${project.version}</version>
                                 </episode>
                             </episodes>
-                            <strict>false</strict>
-                            <extension>true</extension>
                             <args>
                                 <arg>-XtoString</arg>
                                 <arg>-Xequals</arg>
@@ -126,9 +106,9 @@
                         <phase>process-sources</phase>
                         <configuration>
                             <target>
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter" />
+
+                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/gml" />
                                 <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows" />
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/cat/csw" />
                             </target>
                         </configuration>
                         <goals>
@@ -139,4 +119,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
