@@ -26,20 +26,22 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics-runtime</artifactId>
+            <version>${jvnet.jaxb2.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>${jaxb.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jvnet.jaxb2_commons</groupId>
-            <artifactId>jaxb2-basics-runtime</artifactId>
-            <version>${jvnet.jaxb2.version}</version>
-        </dependency>
-        <dependency>
             <groupId>ddf.jaxb</groupId>
             <artifactId>gml-v_3_1_1-schema-binding</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ddf.jaxb</groupId>
@@ -48,13 +50,14 @@
         </dependency>
         <dependency>
             <groupId>ddf.jaxb</groupId>
-            <artifactId>spatial-csw-schema-bindings</artifactId>
+            <artifactId>ows-v_1_0_0-schema-binding</artifactId>
             <version>${project.version}</version>
         </dependency>
 
     </dependencies>
 
     <build>
+        <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
@@ -82,24 +85,25 @@
                             <catalog>src/main/resources/catalog.xml</catalog>
                             <schemaIncludes>
                                 <value>csw-ebrim/*/csw-ebrim.xsd</value>
-                                <value>xml/xml.xsd</value>
+                                <value>csw/*/CSW-publication.xsd</value>
                             </schemaIncludes>
                             <episodes>
+                                <episode>
+                                    <groupId>ddf.jaxb</groupId>
+                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
+                                    <version>${project.version}</version>
+                                </episode>
                                 <episode>
                                     <groupId>ddf.jaxb</groupId>
                                     <artifactId>filter-v_1_1_0-schema-binding</artifactId>
                                     <version>${project.version}</version>
                                 </episode>
                                 <episode>
-                                    <artifactId>gml-v_3_1_1-schema-binding</artifactId>
                                     <groupId>ddf.jaxb</groupId>
+                                    <artifactId>ows-v_1_0_0-schema-binding</artifactId>
                                     <version>${project.version}</version>
                                 </episode>
-                                <episode>
-                                    <groupId>ddf.jaxb</groupId>
-                                    <artifactId>spatial-csw-schema-bindings</artifactId>
-                                    <version>${project.version}</version>
-                                </episode>
+
                             </episodes>
                             <strict>false</strict>
                             <extension>true</extension>
@@ -114,6 +118,18 @@
                                 <arg>-Xinject-code</arg>
                                 <arg>-Xinheritance</arg>
                             </args>
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>${jaxb2.annotate.version}</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics</artifactId>
+                                    <version>${jvnet.jaxb2.version}</version>
+                                </plugin>
+                            </plugins>
                         </configuration>
                     </execution>
                 </executions>
@@ -128,7 +144,8 @@
                             <target>
                                 <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/filter" />
                                 <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/ows" />
-                                <delete dir="${basedir}/target/generated-sources/xjc/net/opengis/cat/csw" />
+
+                                <delete dir="${basedir}/target/generated-sources/xjc/org/purl/dc/terms" />
                             </target>
                         </configuration>
                         <goals>

@@ -31,7 +31,9 @@
     schemaLocation="../../xlink/1.0.0/xlinks.xsd" />
   <xsd:import namespace="http://www.opengis.net/ogc"
     schemaLocation="../../filter/1.1.0/filter.xsd"/>
-    
+  <xsd:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2001/xml.xsd" />
+
   <xsd:element name="Capabilities" type="csw:CapabilitiesType" />
   <xsd:element name="RecordId" type="wrs:RecordIdType" 
     substitutionGroup="ogc:_Id" id="RecordId">
