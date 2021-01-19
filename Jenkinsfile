@@ -186,6 +186,7 @@ pipeline {
                                     // If this build is not a pull request, run sonar scan. otherwise run incremental scan
                                     if (env.CHANGE_ID == null) {
                                         sh 'mvn -q -B -Dcheckstyle.skip=true org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN  -Dsonar.organization=codice -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.exclusions=${COVERAGE_EXCLUSIONS} $DISABLE_DOWNLOAD_PROGRESS_OPTS'
+                                    }
                                 }
                             }
                         }
