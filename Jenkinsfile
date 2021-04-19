@@ -11,10 +11,10 @@ pipeline {
     }
     triggers {
         /*
-          Restrict weekly builds to master branch, all others will be built on change only.
+          Restrict daily polling for changes to master branch, all others will be built on change only.
           Note: The BRANCH_NAME will only work with a multi-branch job using the github-branch-source
         */
-        cron(BRANCH_NAME == "master" ? "@weekly" : "")
+        pollSCM(BRANCH_NAME == "master" ? "@daily" : "")
     }
     environment {
         DISABLE_DOWNLOAD_PROGRESS_OPTS = '-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn '
