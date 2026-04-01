@@ -7,3 +7,5 @@ permissions:
 jobs:
   deploy:
     uses: codice/release-pipelines/.github/workflows/maven-manual-deploy.yml@aws-codeartifact
+    with:
+      maven_args: '-Djavax.xml.accessExternalDTD=all -Djavax.xml.accessExternalSchema=all'
