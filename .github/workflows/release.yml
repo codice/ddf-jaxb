@@ -32,11 +32,11 @@ on:
 
 permissions:
   contents: read
-  packages: write
+  id-token: write
 
 jobs:
   release:
-    uses: codice/release-pipelines/.github/workflows/maven-release.yml@main
+    uses: codice/release-pipelines/.github/workflows/maven-release.yml@aws-codeartifact
     with:
       app_name: 'ddf-jaxb'
       branch: ${{ inputs.branch }}
