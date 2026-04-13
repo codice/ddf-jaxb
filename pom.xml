@@ -25,7 +25,7 @@
     <scm>
         <url>https://github.com/codice/ddf-jaxb</url>
         <connection>scm:git:https://github.com/codice/ddf-jaxb.git</connection>
-        <developerConnection>scm:git:git@github.com:codice/ddf-jaxb.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/codice/ddf-jaxb.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
